@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^2.3.6"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "jsencrypt": "^3.2.0"
+  }
+}
