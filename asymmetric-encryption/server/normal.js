@@ -10,7 +10,7 @@ const server = http.createServer((req, res) => {
     req.on('end',()=>{
         try {
             const data = privDecrypt(JSON.parse(buffer.toString('utf-8')).value)
-            res.end(JSON.stringify(data))
+            res.end(data)
         } catch (error) {
             console.log(error);
             res.end('error')            
