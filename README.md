@@ -8,6 +8,7 @@
 * [利用ArrayBuffer在线预览指定文件夹下的所有内容](./arraybuffer/README.md)
 * [MongoDB - ObjectId最新的生成的原理解析](./objectId/README.md)
 * [判断两个时间是否是同一周](./isSameWeek/README.md)
+* [计算浏览器的localStorage容量](./getLocalStoragSize/README.md)
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动
 
