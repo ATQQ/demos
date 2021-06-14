@@ -14,7 +14,7 @@
 ### [源码](./index.js)
 直接访问[./index.html](./index.html)也可查看
 
-TODO:线上地址
+* [线上访问地址](https://node-server-test-7fq6ugeaba9dce8-1256505457.tcloudbaseapp.com/storage/)
 
 结果如下：
 
