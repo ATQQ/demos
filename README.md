@@ -9,6 +9,7 @@
 * [MongoDB - ObjectId最新的生成的原理解析](./objectId/README.md)
 * [判断两个时间是否是同一周](./isSameWeek/README.md)
 * [计算浏览器的localStorage容量](./getLocalStoragSize/README.md)
+* [腾讯云Serverless 应用 - Express项目模板示例](./sls-express/README.md)
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动
 

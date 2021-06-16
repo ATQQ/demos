@@ -1,0 +1,28 @@
+component: express
+name: express-jskJUp-v4
+org: '1256505457'
+app: suixinsuoyu
+stage: dev
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+      - node_modules/**
+  region: ap-chengdu
+  runtime: Nodejs10.15
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
+    serviceTimeout: 60
+    autoCreateDns: false
+  isAutoCiDeploy: false
+  functionConf:
+    eip: false
+    timeout: 3
+    memorySize: 128
+  layers:
+    - name: '${output:${stage}:${app}:suixinsuoyu-layer.name}'
+      version: '${output:${stage}:${app}:suixinsuoyu-layer.version}'
