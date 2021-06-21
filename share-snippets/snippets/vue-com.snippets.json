@@ -1,0 +1,36 @@
+{
+    "snippet introduce": {
+        "type": "component",
+        "language": "vue",
+        "description": "组件描述",
+        "name": "my-button",
+        "props": [
+            {
+                "key":"placeholder",
+                "value":"请输入名称",
+                "description":"提示内容",
+                "required":true
+            },
+            {
+                "key":"size",
+                "description":"大小",
+                "value":"small,large"
+            },
+            {
+                "key":"disabled",
+                "description":"禁用状态",
+                "hide_value":true
+            },
+            {
+                "key":"clearable",
+                "description":"可清空",
+                "hide_value": true
+            },
+            {
+                "key":"type",
+                "value":"text,number,email",
+                "description":"输入框类型"
+            }
+        ]
+    }
+}

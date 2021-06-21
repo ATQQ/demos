@@ -10,6 +10,8 @@
 * [判断两个时间是否是同一周](./isSameWeek/README.md)
 * [计算浏览器的localStorage容量](./getLocalStoragSize/README.md)
 * [腾讯云Serverless 应用 - Express项目模板示例](./sls-express/README.md)
+* [Share Snippets插件编写代码块示例](./share-snippets/README.md)
+* [封装dotenv库实现类似Vite加载环境变量的行为](./loadEnv/README.md)
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动
 

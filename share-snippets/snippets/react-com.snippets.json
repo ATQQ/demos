@@ -1,0 +1,24 @@
+{
+    "snippet introduce": {
+        "type": "component",
+        "language": "react",
+        "description": "组件描述",
+        "name": "MyButton",
+        "self_closing": true,
+        "props": [
+            {
+                "key": "type",
+                "value": "primary,danger,warn,success",
+                "description": "属性描述",
+                "required": true
+            },
+            {
+                "key": "title",
+                "value": "titleData",
+                "description": "按钮文案",
+                "required": true,
+                "bind":true
+            }
+        ]
+    }
+}

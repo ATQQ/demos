@@ -1,0 +1,16 @@
+{
+    "snippet name": {
+        "type": "template",
+        "scope": "javascript,vue,typescript,typescriptreact,javascriptreact",
+        "description": "vue3模板代码",
+        "name": "v3-all",
+        "path":"./files/vue3/all.vue"
+    },
+    "e": {
+        "type": "template",
+        "scope": "javascript,vue,typescript,typescriptreact,javascriptreact",
+        "description": "vue3-setup模板代码",
+        "name": "v3-sup",
+        "path":"./files/vue3/script-setup.vue"
+    }
+}
