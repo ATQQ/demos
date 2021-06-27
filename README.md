@@ -14,6 +14,7 @@
 * [封装dotenv库实现类似Vite加载环境变量的行为](./loadEnv/README.md)
 * [独立迁移Vite中的loadEnv逻辑](./vite-loadEnv/README.md)
 * [TS装饰器学习](./design-pattern/README.md)
+* [core-decorators库源码学习](./core-decorators/README.md)
 
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动

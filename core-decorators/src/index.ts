@@ -1,0 +1,7 @@
+export { default as time } from './core/time'
+export { default as deprecate, default as deprecated } from './core/deprecate'
+export { default as readonly } from './core/readonly'
+export { default as enumerable } from './core/enumerable'
+export { default as nonenumerable } from './core/nonenumerable'
+export { default as enumable } from './core/enumable'
+export { default as nonconfigurable } from './core/nonconfigurable'
