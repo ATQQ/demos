@@ -1,0 +1,22 @@
+{
+  "name": "ui-tools",
+  "version": "0.1.0",
+  "private": false,
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vconsole": "3.9.0"
+  },
+  "devDependencies": {
+    "typescript": "4.3.5",
+    "vite": "2.4.3"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "main": "dist/index.ui-tools.umd.js"
+}

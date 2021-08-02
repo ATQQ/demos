@@ -1,0 +1,17 @@
+{
+  "name": "node-demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cal.js",
+  "scripts": {
+    "async-io": "node asyncCal/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}

@@ -15,6 +15,7 @@
 * [独立迁移Vite中的loadEnv逻辑](./vite-loadEnv/README.md)
 * [TS装饰器学习](./design-pattern/README.md)
 * [core-decorators库源码学习](./core-decorators/README.md)
+* [向页面注入js高亮图片和文字元素](./test-script/README.md)
 
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动

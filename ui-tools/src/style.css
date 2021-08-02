@@ -1,0 +1,27 @@
+.active{
+    color: red;
+}
+
+.tool-panel{
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+    z-index: 1000;
+}
+
+.box {
+    width: 100px;
+    height: 120px;
+    padding: 20px;
+    /* margin: 10px; */
+    border: 6px solid black;
+    margin: 20px auto;
+}
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: pink;
+}

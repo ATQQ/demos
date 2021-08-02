@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "experimentalDecorators":true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
+    "declaration": true,
+    "declarationDir": "./dist/temp",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    },
+    "noImplicitOverride": true,
+    "noUnusedLocals": false,
+  },
+  "include": [
+    "src/**/*",
+    "types"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
