@@ -1,0 +1,1 @@
+# [require与fs.readFile读取JSON文件的对比](https://juejin.cn/post/6998161168921526308)
