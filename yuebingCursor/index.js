@@ -34,16 +34,15 @@ function h(tag = 'div') {
 function refreshCursorPos(x, y) {
     cursor.style.display = 'block'
     cursor.style.cursor = 'none'
-    cursor.style.opacity = 1
     cursor.style.left = `${x}px`
     cursor.style.top = `${y}px`
+
+    // 一段时间后隐藏
     if (refreshCursorPos.timer) {
         clearTimeout(refreshCursorPos.timer)
     }
     refreshCursorPos.timer = setTimeout(() => {
-        // 3s 后消失
-        cursor.style.opacity = 0
-        cursor.style.cursor = 'auto'
+        cursor.style.display = 'none'
     }, 500)
 }
 
@@ -54,10 +53,10 @@ const refreshOrbit = (function () {
     for (let i = 0; i < ybCounts; i++) {
         const d = h()
         d.classList.add('orbit')
-        domList.push(d)        
+        domList.push(d)
         document.body.append(d)
     }
-    addStyles(document.body,`
+    addStyles(document.body, `
     .orbit{
         background-image:url(https://img.cdn.sugarat.top/mdImg/MTYzMTMyNDMwODg2Nw==631324308867);
         width:${orbitSize};
@@ -80,13 +79,13 @@ const refreshOrbit = (function () {
             dom.style.display = 'block'
             dom.style.left = `${x}px`
             dom.style.top = `${y}px`
-            dom.style.transform = `scale(${(idx+1)*minScale}) translate(10%,10%)`
-            if(dom.timer){
+            dom.style.transform = `scale(${(idx + 1) * minScale}) translate(10%,10%)`
+            if (dom.timer) {
                 clearTimeout(dom.timer)
             }
-            dom.timer = setTimeout(()=>{
+            dom.timer = setTimeout(() => {
                 dom.style.display = 'none'
-            },50*(idx+1))
+            }, 50 * (idx + 1))
         })
 
         const nowTime = Date.now()
@@ -110,15 +109,23 @@ window.addEventListener('touchmove', function (e) {
     refreshCursorPos(clientX, clientY)
 })
 
+const weakMap = new WeakMap()
 window.addEventListener('mousemove', function (e) {
     const { clientX, clientY } = e
+
+    // 隐藏捕获mousemove事件的元素的光标，并在一段时间后恢复
     e.target.style.cursor = 'none'
-    if(window._timer){
-        clearTimeout(window._timer)
+    let timer = weakMap.get(e.target)
+    if(timer){
+        clearTimeout(timer)
     }
-    window._timer = setTimeout(()=>{
+    timer = setTimeout(()=>{
         e.target.style.cursor = 'auto'
     },500)
+    weakMap.set(e.target,timer)
+    
+    // 更新玉兔位置
     refreshCursorPos(clientX, clientY)
+
     refreshOrbit(clientX, clientY)
 })
