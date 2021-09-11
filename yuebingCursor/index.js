@@ -107,6 +107,9 @@ const refreshOrbit = (function () {
 window.addEventListener('touchmove', function (e) {
     const { clientX, clientY } = e.changedTouches[0]
     refreshCursorPos(clientX, clientY)
+    
+    // 更新月饼轨迹
+    refreshOrbit(clientX, clientY)
 })
 
 const weakMap = new WeakMap()
@@ -127,5 +130,6 @@ window.addEventListener('mousemove', function (e) {
     // 更新玉兔位置
     refreshCursorPos(clientX, clientY)
 
+    // 更新月饼轨迹
     refreshOrbit(clientX, clientY)
 })
