@@ -89,16 +89,16 @@ const refreshOrbit = (function () {
         })
 
         const nowTime = Date.now()
-        // 20ms 节流时间
-        if (now + 40 > nowTime) {
+        // 隔一段时间存储一个
+        if (now + 50 > nowTime) {
             return
         }
         now = nowTime
         posList.push({
             x, y
         })
-        // 只展示5个残影
-        if (posList.length === 6) {
+        // 只存储限定的个数
+        if (posList.length === ybCounts + 1) {
             posList.shift()
         }
     }
@@ -116,14 +116,14 @@ window.addEventListener('mousemove', function (e) {
     // 隐藏捕获mousemove事件的元素的光标，并在一段时间后恢复
     e.target.style.cursor = 'none'
     let timer = weakMap.get(e.target)
-    if(timer){
+    if (timer) {
         clearTimeout(timer)
     }
-    timer = setTimeout(()=>{
+    timer = setTimeout(() => {
         e.target.style.cursor = 'auto'
-    },500)
-    weakMap.set(e.target,timer)
-    
+    }, 500)
+    weakMap.set(e.target, timer)
+
     // 更新玉兔位置
     refreshCursorPos(clientX, clientY)
 
