@@ -21,7 +21,7 @@
 ![图片](https://img.cdn.sugarat.top/mdImg/MTYyMzcyNjgyNjM1MA==623726826350)
 
 ### 实际多浏览器测试
-使用[BrowserStack](https://live.browserstack.com/dashboard#os=Windows&os_version=7&browser=Chrome&browser_version=65.0&zoom_to_fit=true&full_screen=true&resolution=responsive-mode&url=https%3A%2F%2Fecom.meituan.com%2Fmeishi&speed=1),其提供了常见的各种浏览器环境，如下图所示
+使用[BrowserStack](https://live.browserstack.com/dashboard#os=Windows&os_version=7&browser=Chrome&browser_version=65.0&zoom_to_fit=true&full_screen=true),其提供了常见的各种浏览器环境，如下图所示
 
 ![图片](https://img.cdn.sugarat.top/mdImg/MTYyMzY4NDI3ODM1Mg==623684278352)
 
