@@ -17,6 +17,7 @@
 * [core-decorators库源码学习](./core-decorators/README.md)
 * [向页面注入js高亮图片和文字元素](./test-script/README.md)
 * [require与fs.readFile读取JSON文件的对比](./node-json/README.md)
+* [解决Vite-React项目中.js使用jsx语法报错的问题 demo](./vite-react-js/README.md)
 
 ## 注意
 部分包含页面的运行示例，需先定位到对应目录再启动
