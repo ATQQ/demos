@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#download,
+#preview,
+#close {
+  position: fixed;
+  right: 20px;
+}
+#download {
+  bottom: 50%;
+}
+#preview {
+  bottom: 45%;
+}
+#close {
+  bottom: 40%;
+}
+#post {
+  background-color: red;
+}
+.img1 {
+  width: 150px;
+  padding: 10px;
+}
+.img2 {
+  width: 120px;
+}
+.img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.text-wrapper {
+  text-align: center;
+}
+button {
+  padding: 5px 10px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  background-color: aquamarine;
+}
+
+#img-wrapper {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  text-align: center;
+  padding: 20px;
+  #img {
+    height: 80vh;
+  }
+}
