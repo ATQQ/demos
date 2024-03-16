@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG 图片在线压缩</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.css">
+    <script src="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.js"></script>
+    <script src="https://cdn.staticfile.net/pako/1.0.5/pako.min.js"></script>
+    <script src="https://cdn.staticfile.net/upng-js/2.1.0/UPNG.min.js"></script>
+</head>
+
+<body>
+    <h1>PNG 图片在线压缩 | UPNG.js</h1>
+    <textarea id="cv" cols="30" rows="10"></textarea>
+    <p class="tip">可将图片拖放至此区域 或 点击后直接粘贴图片"</p>
+    <input type="file" accept="image/*" id="file">
+    <table>
+        <thead>
+            <tr>
+                <th>原图</th>
+                <th>压缩后 <span id="download">下载</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img id="origin-img" src="./origin.png" alt="原图"></td>
+                <td><img id="compressed-img" src="./compressed.png" alt="压缩后图片"></td>
+            </tr>
+            <tr>
+                <td id="origin-size">2.06M</td>
+                <td id="compressed-size" style="color: green;">344.52K</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="info">体积减少：<span id="compression-percentage">83.70</span>%</p>
+    <script src="./index.js"></script>
+</body>
+
+</html>
