@@ -4,7 +4,8 @@
   "description": "包含 学习/工作/练习/写文章时产生的Demo",
   "main": "index.js",
   "scripts": {
-    "build": "bun script/build.ts"
+    "build": "bun script/build.ts",
+    "deploy": "bun script/deploy.ts"
   },
   "keywords": [],
   "author": "",
