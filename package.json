@@ -1,0 +1,15 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "包含 学习/工作/练习/写文章时产生的Demo",
+  "main": "index.js",
+  "scripts": {
+    "build": "bun script/build.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bun": "^1.0.8"
+  }
+}
