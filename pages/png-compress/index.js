@@ -53,6 +53,11 @@ document.querySelector('#download').addEventListener('click', (e) => {
     a.click()
   }
 })
+
+/**
+ * 压缩图片
+ * @param {File} file 图片文件对象
+ */
 async function compress(file) {
   // 显示下载按钮
   document.querySelector('#download').style.visibility = 'visible'
@@ -63,7 +68,7 @@ async function compress(file) {
     alert('请选择 PNG 格式图片')
     return
   }
-  console.log(file);
+
   // 压缩图片
   const ops = {}
   const compressedFile = await compressPNGImage(file, ops)
