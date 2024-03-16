@@ -42,7 +42,7 @@ $cv.addEventListener('drop', function (e) {
 
 // 图片预览支持
 const viewer = new Viewer(document.querySelector('table'))
-
+let originFile = null
 let compressedResult = null
 // 下载支持
 document.querySelector('#download').addEventListener('click', (e) => {
@@ -54,11 +54,24 @@ document.querySelector('#download').addEventListener('click', (e) => {
   }
 })
 
+// 新配置重新生成
+document.querySelector('#refresh').addEventListener('click', async () => {
+  if(!originFile){
+    alert('请先选择图片')
+    return
+  }
+  compress(originFile)
+})
+
 /**
  * 压缩图片
  * @param {File} file 图片文件对象
  */
 async function compress(file) {
+  if(!file){
+    return
+  }
+  originFile = file
   // 显示下载按钮
   document.querySelector('#download').style.visibility = 'visible'
 
@@ -69,10 +82,23 @@ async function compress(file) {
     return
   }
 
+  // 压缩配置获取
+  const qualityInput = document.getElementById('qualityInput');
+  const noCompressIfLargerInput = document.getElementById('noCompressIfLargerInput');
+  const widthInput = document.getElementById('widthInput');
+  const heightInput = document.getElementById('heightInput');
+  const ops = {
+    quality: parseFloat(qualityInput.value),
+    noCompressIfLarger: noCompressIfLargerInput.checked,
+    width: parseInt(widthInput.value),
+    height: parseInt(heightInput.value)
+  };
+
   // 压缩图片
-  const ops = {}
   const compressedFile = await compressPNGImage(file, ops)
   compressedResult = compressedFile
+
+  // 页面显示更新
   document.querySelector('#origin-img').setAttribute('src', createObjectURL(file))
   document.querySelector('#compressed-img').setAttribute('src', createObjectURL(compressedFile))
 
@@ -114,11 +140,18 @@ function formatSize(
 }
 
 async function compressPNGImage(file, ops = {}) {
-  const { width, height, quality = 0.8, noCompressIfLarger = true } = ops
-
+  const { quality = 0.8, noCompressIfLarger = true } = ops
+  let { width, height } = ops
   const arrayBuffer = await file.arrayBuffer()
   const decoded = UPNG.decode(arrayBuffer)
   const rgba8 = UPNG.toRGBA8(decoded)
+
+  // 如果只指定了宽度或高度，则按比例缩放
+  if (width && !height) {
+    height = Math.round(decoded.height * (width / decoded.width))
+  } else if (!width && height) {
+    width = Math.round(decoded.width * (height / decoded.height))
+  }
 
   const compressed = UPNG.encode(
     rgba8,

@@ -17,6 +17,31 @@
     <textarea id="cv" cols="30" rows="10"></textarea>
     <p class="tip">可将图片拖放至此区域 或 点击后直接粘贴图片</p>
     <input type="file" accept="image/*" id="file">
+    <details>
+        <summary>压缩参数</summary>
+        <div id="configForm">
+            <label>
+                压缩质量：
+                <input type="number" step="0.1" min="0" max="1" value="0.8" id="qualityInput">
+            </label>
+            <label>
+                压缩后更大是否使用原图：
+                <input type="checkbox" checked id="noCompressIfLargerInput">
+            </label>
+            <label>
+                压缩后的新宽度：
+                <input type="number" value="0" id="widthInput">
+            </label>
+            <label>
+                压缩后的新高度：
+                <input type="number" value="0" id="heightInput">
+            </label>
+            <p>质量：为 0 表示使用无损压缩</p>
+            <p>宽高：为 0 表示保持原状不变</p>
+            <button id="refresh">刷新</button>
+        </div>
+    </details>
+
     <table>
         <thead>
             <tr>

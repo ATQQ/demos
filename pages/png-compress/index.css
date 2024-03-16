@@ -1,6 +1,24 @@
 h1 {
     text-align: center;
 }
+details{
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input[type="number"] {
+    width: 50px;
+}
+input[type="checkbox"] {
+    margin-left: 5px;
+}
+button {
+    margin-top: 10px;
+}
+
 .tip {
     color: red;
     text-align: center;
