@@ -72,3 +72,10 @@ td {
     cursor: pointer;
     visibility: hidden;
 }
+
+.github{
+    text-align: right;
+}
+.github a{
+    margin-right: 20px;
+}
