@@ -1,5 +1,7 @@
+import { $ } from "bun";
 import fs from 'fs'
 import path from 'path'
+
 function copyDirectory(source, destination) {
   // 创建目标目录
   fs.mkdirSync(destination, { recursive: true });
@@ -26,8 +28,11 @@ function copyDirectory(source, destination) {
 const dist = 'dist'
 const copyDir = ['pages/png-compress']
 const root = process.cwd()
+
+await $`rm -rf ${dist}`
+
 copyDir.forEach(dir => {
   const source = path.join(root, dir)
-  const destination = path.join(root, dist, dir.replace('pages/', ''))
+  const destination = path.join(root, dist, dir)
   copyDirectory(source, destination)
 })
