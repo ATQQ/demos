@@ -1,7 +1,27 @@
 h1 {
     text-align: center;
 }
-details{
+.paste-area {
+    position: relative;
+}
+textarea {
+    caret-color: transparent;
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    color: white;
+}
+.paste-area .tip {
+    color: red;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    pointer-events: none;
+    margin: 0;
+}
+
+details {
     text-align: center;
 }
 
@@ -19,15 +39,6 @@ button {
     margin-top: 10px;
 }
 
-.tip {
-    color: red;
-    text-align: center;
-    position: absolute;
-    top: 150px;
-    margin: 0 auto;
-    width: 100%;
-    pointer-events: none;
-}
 #cv {
     width: 100%;
 }
@@ -73,9 +84,9 @@ td {
     visibility: hidden;
 }
 
-.github{
+.github {
     text-align: right;
 }
-.github a{
+.github a {
     margin-right: 20px;
 }
