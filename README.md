@@ -3,6 +3,8 @@
 包含 学习/工作/练习/写文章时产生的Demo
 
 ## 目录
+
+* [纯前端实现 PNG 图片压缩 | UPNG.js](./pages/png-compress)
 * [使用jsencrypt配合axios实现传输数据的非对称加密](./asymmetric-encryption)
 * [FileSaver.js源码学习，纯前端实现文件下载](./download-img)
 * [利用ArrayBuffer在线预览指定文件夹下的所有内容](./arraybuffer)
@@ -20,13 +22,16 @@
 * [解决Vite-React项目中.js使用jsx语法报错的问题 demo](./vite-react-js)
 
 ## 注意
+
 部分包含页面的运行示例，需先定位到对应目录再启动
 
 如:
+
 ```sh
 cd arraybuffer
 # then
-yarn dev
+npm install
+npm run dev
 ```
 
 启动指令在对应目录下的`package.json`中查看

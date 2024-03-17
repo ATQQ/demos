@@ -4,6 +4,8 @@
 
 线上地址：https://demos.sugarat.top/pages/png-compress/
 
+GitHub Pages 地址：https://atqq.github.io/demos/pages/png-compress/
+
 ## 实现介绍
 纯 HTML/CSS/JS 实现
 
