@@ -85,7 +85,7 @@ async function compress(file) {
   }
   // 压缩配置获取
 
-  const { qualityInput, noCompressIfLargerInput = false, width, height,method } = getCompressConfig()
+  const { qualityInput, noCompressIfLargerInput = false, width, height, method } = getCompressConfig()
 
   const ops = {
     quality: parseFloat(qualityInput),
@@ -93,8 +93,8 @@ async function compress(file) {
     width: +width,
     height: +height,
   };
-  // TODO：根据方式 压缩图片
-  const compressedFile = await compressPNGImage(file, ops)
+  // 压缩图片
+  const compressedFile = await compressJPGImage(file, method, ops)
   compressedResult = compressedFile
 
   // 页面显示更新
@@ -144,6 +144,72 @@ function formatSize(
   )
 }
 
+async function compressImageByCanvas(file, options = {}) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  const { quality } = options;
+  let { width, height} = options
+  const reader = new FileReader();
+
+  let _resolve, _reject
+  const promise = new Promise((resolve, reject) => {
+    _resolve = resolve
+    _reject = reject
+  })
+
+  reader.onload = function (event) {
+    const img = new Image();
+    img.onload = function () {
+
+      // 如果只指定了宽度或高度，则另一个按比例缩放
+      if (width && !height) {
+        height = Math.round(img.height * (width / img.width))
+      } else if (!width && height) {
+        width = Math.round(img.width * (height / img.height))
+      }
+
+      // 设置 canvas 的宽高与图片一致
+      canvas.width = height || img.width;
+      canvas.height = width || img.height;
+
+      // 在 canvas 上绘制图片
+      ctx.drawImage(img, 0, 0);
+
+      // 获取压缩后的图片数据
+      const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+      
+      _resolve(dataURItoFile(compressedDataUrl, file.name))
+    };
+
+    img.src = event.target.result;
+  };
+
+  reader.readAsDataURL(file);
+  return promise
+}
+
+function dataURItoFile(dataURI, fileName) {
+  const arr = dataURI.split(',');
+  const mime = arr[0].match(/:(.*?);/)[1];
+  const bstr = atob(arr[1]);
+  let n = bstr.length;
+  const u8arr = new Uint8Array(n);
+
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+
+  return new File([u8arr], fileName, { type: mime });
+}
+
+function compressJPGImage(file, method, ops = {}) {
+  if(method === 'canvas'){
+    return compressImageByCanvas(file, ops)
+  }
+  return file
+}
+
 async function compressPNGImage(file, ops = {}) {
   const { quality = 0.8, noCompressIfLarger = true } = ops
   let { width, height } = ops
@@ -187,7 +253,7 @@ async function isJPG(file) {
 
   // 逐个字节对比
   for (let i = 0; i < signature1.length; i++) {
-    if (source[i] !== signature1[i] && source[i]!== signature2[i]) {
+    if (source[i] !== signature1[i] && source[i] !== signature2[i]) {
       return false
     }
   }
