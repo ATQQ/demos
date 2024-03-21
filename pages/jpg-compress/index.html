@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.css">
     <script src="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.js"></script>
     <!-- 图片压缩  -->
-    <!-- <script src="https://cdn.staticfile.net/pako/1.0.5/pako.min.js"></script>
-    <script src="https://cdn.staticfile.net/upng-js/2.1.0/UPNG.min.js"></script> -->
+    <script src="https://cdn.staticfile.net/browser-image-compression/2.0.2/browser-image-compression.min.js"></script>
     <!-- 51统计代码 -->
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
     <script>window.LA && LA.init({ id: "KNdTal5LkAXiUerM", ck: "KNdTal5LkAXiUerM" })</script>
@@ -53,7 +52,7 @@
                 压缩方式：
                 <select name="method">
                     <option value="canvas">Canvas</option>
-                    <option value="test">待定</option>
+                    <option value="browser-image-compression">browser-image-compression</option>
                 </select>
             </label>
         </form>
@@ -71,7 +70,7 @@
         <tbody>
             <tr>
                 <td><img id="origin-img" src="./origin.jpg" alt="原图"></td>
-                <td><img id="compressed-img" alt="压缩后图片"></td>
+                <td><img id="compressed-img" src="./compressed.jpg" alt="压缩后图片"></td>
             </tr>
             <tr>
                 <td id="origin-size">2.8M</td>

@@ -26,6 +26,9 @@ export async function compressJPGImage(file, method, ops = {}) {
     if (method === 'canvas') {
         newFile = await compressImageByCanvas(file, ops)
     }
+    if (method === 'browser-image-compression') {
+        newFile = await compressImageBImageCompression(file, ops)
+    }
 
     if (!noCompressIfLarger) {
         return newFile
@@ -77,4 +80,13 @@ export async function compressImageByCanvas(file, options = {}) {
 
     reader.readAsDataURL(file);
     return promise
+}
+
+export async function compressImageBImageCompression(file, options = {}){
+    let { width, height, quality  } = options
+    return  window.imageCompression(file, {
+        maxSizeMB: file.size / 1024 / 1024 * quality,
+        maxWidth: width,
+        maxHeight: height
+    })
 }
