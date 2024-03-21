@@ -24,7 +24,13 @@ textarea {
 details {
     text-align: center;
 }
-
+#configForm .tip{
+    color: gray;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
 label {
     display: block;
     margin-bottom: 10px;
