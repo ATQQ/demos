@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPG 图片压缩</title>
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="./index.css">
+    <!-- 图片预览 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.css">
+    <script src="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.js"></script>
+    <!-- 图片压缩  -->
+    <script src="https://cdn.staticfile.net/browser-image-compression/2.0.2/browser-image-compression.min.js"></script>
+    <script src='https://cdn.staticfile.net/compressorjs/1.2.1/compressor.min.js'></script>
+    <!-- 51统计代码 -->
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>window.LA && LA.init({ id: "KNdTal5LkAXiUerM", ck: "KNdTal5LkAXiUerM" })</script>
+</head>
+
+<body>
+    <!-- 顶导 -->
+    <p class="github">
+        <a href="../png-compress">PNG 文件压缩</a>
+        <a href="https://github.com/ATQQ/demos/tree/main/pages/jpg-compress" target="_blank">GitHub</a>
+    </p>
+    <h1>JPG 图片压缩</h1>
+    <!-- 拖拽粘贴区域 -->
+    <div class="paste-area">
+        <textarea id="cv" cols="30" rows="10"></textarea>
+        <p class="tip">可将图片拖放至此区域 或 点击后直接粘贴图片</p>
+    </div>
+    <!-- 手动选择文件 -->
+    <input type="file" accept="image/*" id="file">
+    <!-- 配置区域 -->
+    <details>
+        <summary>压缩参数</summary>
+        <form id="configForm">
+            <label>
+                压缩质量(0-1)：
+                <input name="qualityInput" type="number" step="0.1" min="0" max="1" value="0.8">
+            </label>
+            <label>
+                压缩后更大是否使用原图：
+                <input name="noCompressIfLargerInput" type="checkbox" checked value="true">
+            </label>
+            <label>
+                压缩后的宽高：
+                <input name="width" type="number" value="0">
+                <input name="height" type="number" value="0">
+            </label>
+            <p class="tip">为 0 表示保持原状不变，只设置一个会等比缩放另一个</p>
+            <label>
+                压缩方式：
+                <select name="method">
+                    <option value="canvas">Canvas</option>
+                    <option value="browser-image-compression">Browser Image Compression</option>
+                    <option value="Compressor">Compressor.js</option>
+                </select>
+            </label>
+        </form>
+        <button id="refresh">刷新</button>
+    </details>
+
+    <!-- TODO：效果图，带迭代 -->
+    <table>
+        <thead>
+            <tr>
+                <th>原图</th>
+                <th>压缩后 <span id="download">下载</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img id="origin-img" src="./origin.jpg" alt="原图"></td>
+                <td><img id="compressed-img" src="./compressed.jpg" alt="压缩后图片"></td>
+            </tr>
+            <tr>
+                <td id="origin-size">2.8M</td>
+                <td id="compressed-size" style="color: green;">344.52K</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- 效果描述 -->
+    <p class="info">体积减少：<span id="compression-percentage">83.70</span>%</p>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>

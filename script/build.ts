@@ -26,7 +26,7 @@ function copyDirectory(source, destination) {
 }
 
 const dist = 'dist'
-const copyDir = ['pages/png-compress']
+const copyDir = ['pages/png-compress','pages/jpg-compress']
 const root = process.cwd()
 
 await $`rm -rf ${dist}`

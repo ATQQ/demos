@@ -4,6 +4,7 @@
 
 ## 目录
 
+* [纯前端实现 JPG 图片压缩](./pages/jpg-compress)
 * [纯前端实现 PNG 图片压缩 | UPNG.js](./pages/png-compress)
 * [使用jsencrypt配合axios实现传输数据的非对称加密](./asymmetric-encryption)
 * [FileSaver.js源码学习，纯前端实现文件下载](./download-img)
