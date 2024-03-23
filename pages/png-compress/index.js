@@ -1,3 +1,13 @@
+// 初始化时压缩测试图片
+document.addEventListener("DOMContentLoaded", function(event) { 
+  fetch(document.getElementById('origin-img').src) 
+    .then(response => response.blob())  //将其转为blob
+    .then(blob => {
+        let file = new File([blob], "image.jpg", {type: blob.type});  //创建文件对象
+        compress(file)
+    });
+});
+
 // 手动选择的图片
 document.querySelector('#file').addEventListener('change', async (e) => {
   const file = e.target.files[0]
