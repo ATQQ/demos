@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JPG 图片在线压缩</title>
+    <title>JPG 图片压缩</title>
     <!-- 页面样式 -->
     <link rel="stylesheet" href="./index.css">
     <!-- 图片预览 -->
@@ -12,6 +12,7 @@
     <script src="https://cdn.staticfile.net/viewerjs/1.11.6/viewer.min.js"></script>
     <!-- 图片压缩  -->
     <script src="https://cdn.staticfile.net/browser-image-compression/2.0.2/browser-image-compression.min.js"></script>
+    <script src='https://cdn.staticfile.net/compressorjs/1.2.1/compressor.min.js'></script>
     <!-- 51统计代码 -->
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
     <script>window.LA && LA.init({ id: "KNdTal5LkAXiUerM", ck: "KNdTal5LkAXiUerM" })</script>
@@ -22,7 +23,7 @@
     <!-- 顶导 -->
     <p class="github"><a href="https://github.com/ATQQ/demos/tree/main/pages/png-compress" target="_blank">GitHub</a>
     </p>
-    <h1>JPG 图片在线压缩</h1>
+    <h1>JPG 图片压缩</h1>
     <!-- 拖拽粘贴区域 -->
     <div class="paste-area">
         <textarea id="cv" cols="30" rows="10"></textarea>
@@ -52,7 +53,8 @@
                 压缩方式：
                 <select name="method">
                     <option value="canvas">Canvas</option>
-                    <option value="browser-image-compression">browser-image-compression</option>
+                    <option value="browser-image-compression">Browser Image Compression</option>
+                    <option value="Compressor">Compressor.js</option>
                 </select>
             </label>
         </form>
