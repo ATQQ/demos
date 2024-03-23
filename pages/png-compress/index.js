@@ -1,10 +1,10 @@
 // 初始化时压缩测试图片
-document.addEventListener("DOMContentLoaded", function(event) { 
-  fetch(document.getElementById('origin-img').src) 
+document.addEventListener("DOMContentLoaded", function (event) {
+  fetch(document.getElementById('origin-img').src)
     .then(response => response.blob())  //将其转为blob
     .then(blob => {
-        let file = new File([blob], "image.jpg", {type: blob.type});  //创建文件对象
-        compress(file)
+      let file = new File([blob], "image.jpg", { type: blob.type });  //创建文件对象
+      compress(file)
     });
 });
 
@@ -66,7 +66,7 @@ document.querySelector('#download').addEventListener('click', (e) => {
 
 // 新配置重新生成
 document.querySelector('#refresh').addEventListener('click', async () => {
-  if(!originFile){
+  if (!originFile) {
     alert('请先选择图片')
     return
   }
@@ -78,7 +78,7 @@ document.querySelector('#refresh').addEventListener('click', async () => {
  * @param {File} file 图片文件对象
  */
 async function compress(file) {
-  if(!file){
+  if (!file) {
     return
   }
   originFile = file
@@ -163,10 +163,15 @@ async function compressPNGImage(file, ops = {}) {
     width = Math.round(decoded.width * (height / decoded.height))
   }
 
+  // TODO：尺寸缩放，使用 canvas 先缩放
+
+  width = width || decoded.width
+  height = height || decoded.height
+
   const compressed = UPNG.encode(
     rgba8,
-    width || decoded.width,
-    height || decoded.height,
+    width,
+    height,
     256 * quality
   )
 
