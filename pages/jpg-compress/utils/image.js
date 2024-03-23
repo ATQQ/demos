@@ -27,7 +27,7 @@ export async function compressJPGImage(file, method, ops = {}) {
         newFile = await compressImageByCanvas(file, ops)
     }
     if (method === 'browser-image-compression') {
-        newFile = await compressImageBImageCompression(file, ops)
+        newFile = await compressImageByImageCompression(file, ops)
     }
 
     if (!noCompressIfLarger) {
@@ -61,13 +61,13 @@ export async function compressImageByCanvas(file, options = {}) {
             } else if (!width && height) {
                 width = Math.round(img.width * (height / img.height))
             }
-
+            
             // 设置 canvas 的宽高与图片一致
-            canvas.width = height || img.width;
-            canvas.height = width || img.height;
+            canvas.width = width || img.width;
+            canvas.height = height || img.height;
 
             // 在 canvas 上绘制图片
-            ctx.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height );
 
             // 获取压缩后的图片数据
             const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
@@ -82,11 +82,10 @@ export async function compressImageByCanvas(file, options = {}) {
     return promise
 }
 
-export async function compressImageBImageCompression(file, options = {}){
+export async function compressImageByImageCompression(file, options = {}){
     let { width, height, quality  } = options
     return  window.imageCompression(file, {
         maxSizeMB: file.size / 1024 / 1024 * quality,
-        maxWidth: width,
-        maxHeight: height
+        maxWidthOrHeight: width || height,
     })
 }
