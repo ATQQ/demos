@@ -1,4 +1,4 @@
-import { dataURItoFile } from './transform.js'
+import { createObjectURL, dataURItoFile } from './transform.js'
 
 export async function isJPG(file) {
     // 提取前3个字节
@@ -35,12 +35,8 @@ export async function compressJPGImage(file, method, ops = {}) {
 }
 
 export async function compressImageByCanvas(file, options = {}) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
     const { quality } = options;
     let { width, height } = options
-    const reader = new FileReader();
 
     let _resolve, _reject
     const promise = new Promise((resolve, reject) => {
@@ -48,41 +44,39 @@ export async function compressImageByCanvas(file, options = {}) {
         _reject = reject
     })
 
-    reader.onload = function (event) {
-        const img = new Image();
-        img.onload = function () {
+    const img = new Image();
+    img.onload = function () {
 
-            // 如果只指定了宽度或高度，则另一个按比例缩放
-            if (width && !height) {
-                height = Math.round(img.height * (width / img.width))
-            } else if (!width && height) {
-                width = Math.round(img.width * (height / img.height))
-            }
+        // 如果只指定了宽度或高度，则另一个按比例缩放
+        if (width && !height) {
+            height = Math.round(img.height * (width / img.width))
+        } else if (!width && height) {
+            width = Math.round(img.width * (height / img.height))
+        }
+        
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
 
-            // 设置 canvas 的宽高与图片一致
-            canvas.width = width || img.width;
-            canvas.height = height || img.height;
+        // 设置 canvas 的宽高与图片一致
+        canvas.width = width || img.width;
+        canvas.height = height || img.height;
 
-            // 在 canvas 上绘制图片
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-            // 获取压缩后的图片数据
-            const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
-
-            _resolve(dataURItoFile(compressedDataUrl, file.name))
-        };
-
-        img.src = event.target.result;
+        // 在 canvas 上绘制图片
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        
+        // 获取压缩后的图片数据
+        const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+        _resolve(dataURItoFile(compressedDataUrl, file.name))
     };
 
-    reader.readAsDataURL(file);
+    img.src = createObjectURL(file);
     return promise
 }
 
-export async function compressImageByImageCompression(file, options = {}) {
+export function compressImageByImageCompression(file, options = {}) {
     let { width, height, quality } = options
     return window.imageCompression(file, {
-        maxSizeMB: file.size / 1024 / 1024 * quality,
+        maxSizeMB: Math.round(file.size / (1024 * 1024) * quality),
         maxWidthOrHeight: width || height || undefined,
         libURL: 'https://cdn.staticfile.net/browser-image-compression/2.0.2/browser-image-compression.js'
     })
