@@ -90,7 +90,6 @@ export async function compressImageByCompressor(file, options = {}) {
             width: width || undefined,
             height: height || undefined,
             success(result) {
-                console.log(result);
                 resolve(result)
             },
             error(err) {
