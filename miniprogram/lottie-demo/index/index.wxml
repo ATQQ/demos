@@ -1,0 +1,9 @@
+<view class="intro">Lottie 小程序示例</view>
+<!-- 全屏 -->
+<canvas id="c2" type="2d"></canvas>
+<view style="text-align: center;">
+    <!-- 局部 -->
+    <canvas id="c1" type="2d"></canvas>
+    <button bindtap="init" style="width: 300px;">局部播放</button>
+    <button bindtap="fullScreen" style="width: 300px;">全屏播放</button>
+</view>
