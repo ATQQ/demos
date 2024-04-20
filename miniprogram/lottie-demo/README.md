@@ -1,5 +1,7 @@
 # 微信小程序-Lottie动画demo
 
+相关文章：[小程序中使用 lottie 动画 | 踩坑经验分享](https://sugarat.top/technology/learn/mini-lottie.html)
+
 ## 使用
 
 ① 导入本项目到开发者工具
@@ -22,4 +24,7 @@ npm run serve
 
 ## 效果
 
-![效果](image.png)
+|        局部        |           全屏           |
+| :----------------: | :----------------------: |
+| ![效果](demo.png) | ![全屏](full-screen.png) |
+
