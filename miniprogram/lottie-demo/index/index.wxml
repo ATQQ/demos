@@ -1,9 +1,13 @@
 <view class="intro">Lottie 小程序示例</view>
-<!-- 全屏 -->
-<canvas id="c2" type="2d"></canvas>
 <view style="text-align: center;">
     <!-- 局部 -->
     <canvas id="c1" type="2d"></canvas>
-    <button bindtap="init" style="width: 300px;">局部播放</button>
-    <button bindtap="fullScreen" style="width: 300px;">全屏播放</button>
+    <button bindtap="init">局部播放</button>
+    <button bindtap="fullScreen">全屏播放</button>
+    <button bindtap="replaceText">动态文案</button>
+</view>
+
+<!-- 全屏 -->
+<view wx:if="{{showFull}}" class="full-screen-wrapper">
+    <canvas id="c2" type="2d" catch:tap="handleCloseFullScreen"></canvas>
 </view>
