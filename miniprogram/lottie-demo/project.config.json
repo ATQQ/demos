@@ -1,7 +1,12 @@
 {
     "description": "项目配置文件",
     "packOptions": {
-        "ignore": [],
+        "ignore": [
+            {
+                "value": "json",
+                "type": "folder"
+            }
+        ],
         "include": []
     },
     "setting": {
@@ -24,7 +29,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "development",
-    "appid": "wxf326f1995627c671",
+    "appid": "wx211cefda222b3070",
     "projectname": "lottie-miniprogram",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
