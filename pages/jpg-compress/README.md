@@ -1,6 +1,6 @@
 # 纯前端实现 JPG 图片压缩
 
-介绍文章：TODO
+介绍文章：[纯前端实现 JPG 图片压缩 | canvas](https://juejin.cn/post/7349465019325661203)
 
 线上地址：https://demos.sugarat.top/pages/jpg-compress/
 
