@@ -1,6 +1,6 @@
 # 微信小程序-Lottie动画demo
 
-相关文章：[小程序中使用 lottie 动画 | 踩坑经验分享](https://sugarat.top/technology/learn/mini-lottie.html)
+相关文章：[小程序中使用 lottie 动画 | 踩坑经验分享](https://sugarat.top/technology/learn/mini-lottie.html) - [掘金](https://juejin.cn/post/7359510792344289289)
 
 ## 使用
 

@@ -4,6 +4,7 @@
 
 ## 目录
 
+* [小程序中使用 lottie 播放AE动画](./miniprogram/lottie-demo)
 * [纯前端实现 JPG 图片压缩](./pages/jpg-compress)
 * [纯前端实现 PNG 图片压缩 | UPNG.js](./pages/png-compress)
 * [使用jsencrypt配合axios实现传输数据的非对称加密](./asymmetric-encryption)
